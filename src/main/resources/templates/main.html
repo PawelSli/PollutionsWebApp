@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<html .... xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Smog level in your city</title>
-    <link rel="stylesheet" src="../css/style.css">
     <script src="https://kit.fontawesome.com/723297a893.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="../static/animation.js" defer></script>
-    <script type="text/javascript" src="../static/map.js" defer></script>
+    <script type="text/javascript" th:src="@{/js/animation.js}" defer></script>
+    <script type="text/javascript" th:src="@{/js/map.js}" defer></script>
+    <link th:href="@{/stylesheet/style.css}" rel="stylesheet" type="text/css">
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
 </head>
 <body>
