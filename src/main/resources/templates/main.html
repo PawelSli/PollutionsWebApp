@@ -20,14 +20,7 @@
                 <input  class="search-bar-input" placeholder="Search city">
             </div>
             <ul>
-                <li>Gdynia</li>
-                <li>Limanowa</li>
-                <li>Kraków</li>
-                <li>Warszawa</li>
-                <li>Nowy Sącz</li>
-                <li>Gdańsk</li>
-                <li>Wrocław</li>
-                <li>Poznań</li>
+                <li th:each="city : ${cities}" th:text="${city}"></li>
             </ul>
         </div>
         <div  class="map-panel">
