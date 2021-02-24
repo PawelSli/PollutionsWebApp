@@ -16,7 +16,7 @@ public class MeasurementController {
     @RequestMapping("/main")
     public String showMainPanel(Model model){
         measurementRepository.initialize();
-        model.addAttribute("cities",measurementRepository.getJsonArrayNames());
+        model.addAttribute("cities",measurementRepository.getJsonStationData());
         return "main";
     }
 
