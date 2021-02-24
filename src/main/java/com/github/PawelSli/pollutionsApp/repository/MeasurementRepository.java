@@ -11,23 +11,30 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class MeasurementRepository {
+    private  JSONArray jsonArray;
 
-    public  ArrayList getJsonArrayFromUrl(){
-        ArrayList<String> arrayList=new ArrayList<>();
+    public void initialize(){
         try {
             String text = new Scanner(new URL("http://api.gios.gov.pl/pjp-api/rest/station/findAll").openStream()).useDelimiter("\\A").next();
-            JSONArray array = new JSONArray(text);
-            array.forEach(object->{
-                JSONObject jsonObject=(JSONObject) object;
-                arrayList.add((String)jsonObject.get("stationName"));
-            });
-            Collections.sort(arrayList);
+            jsonArray = new JSONArray(text);
         }catch (IOException exception){
             exception.printStackTrace();
         }
+    }
+
+    public  ArrayList getJsonStationData(){
+        Comparator<String[]> comparator=(s1,s2)->String.CASE_INSENSITIVE_ORDER.compare(s1[0],s2[0]);
+        ArrayList<String[]> arrayList=new ArrayList<>();
+        jsonArray.forEach(object->{
+            JSONObject jsonObject=(JSONObject) object;
+            arrayList.add(new String[]{(String) jsonObject.get("stationName"),(String) jsonObject.get("gegrLat"), (String) jsonObject.get("gegrLon")});
+        });
+        arrayList.sort(comparator);
         return arrayList;
     }
+
 }
