@@ -80,7 +80,9 @@ ul{
     width: 80%;
     padding: 0;
     margin: 0.3em 0 0 0;
+    overflow: auto;
 }
+
 
 li{
     text-align: left;

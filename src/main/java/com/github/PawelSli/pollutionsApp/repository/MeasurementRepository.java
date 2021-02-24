@@ -14,20 +14,33 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class MeasurementRepository {
+    private  JSONArray jsonArray;
 
-    public  ArrayList getJsonArrayFromUrl(){
-        ArrayList<String> arrayList=new ArrayList<>();
+    public void initialize(){
         try {
             String text = new Scanner(new URL("http://api.gios.gov.pl/pjp-api/rest/station/findAll").openStream()).useDelimiter("\\A").next();
-            JSONArray array = new JSONArray(text);
-            array.forEach(object->{
-                JSONObject jsonObject=(JSONObject) object;
-                arrayList.add((String)jsonObject.get("stationName"));
-            });
-            Collections.sort(arrayList);
+            jsonArray = new JSONArray(text);
         }catch (IOException exception){
             exception.printStackTrace();
         }
+    }
+
+    public  ArrayList getJsonArrayNames(){
+        ArrayList<String> arrayList=new ArrayList<>();
+        jsonArray.forEach(object->{
+            JSONObject jsonObject=(JSONObject) object;
+            arrayList.add((String)jsonObject.get("stationName"));
+        });
+        Collections.sort(arrayList);
+        return arrayList;
+    }
+
+    public ArrayList getGeographicLocation(){
+        ArrayList<String[]> arrayList=new ArrayList<>();
+        jsonArray.forEach(object->{
+            JSONObject jsonObject=(JSONObject) object;
+            arrayList.add(new String[]{(String) jsonObject.get("gegrLat"), (String) jsonObject.get("gegrLon")});
+        });
         return arrayList;
     }
 }
