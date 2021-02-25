@@ -20,7 +20,7 @@
                 <input  class="search-bar-input" placeholder="Search city">
             </div>
             <ul>
-                <li th:each="city : ${cities}" th:text="${city}"></li>
+                <li th:each="city : ${cities}" th:text="${city[0]}"></li>
             </ul>
         </div>
         <div  class="map-panel">
