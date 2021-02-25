@@ -9,12 +9,13 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.github.PawelSli</groupId>
-	<artifactId>pollutionsApp</artifactId>
+	<artifactId>pollutions-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>pollutionsApp</name>
 	<description>It is an attempt to create a simple web application that shows the state of pollution in selected cities in Poland based on information provided by the Polish Environmental Protection Inspectorate.</description>
 	<properties>
-		<java.version>14</java.version>
+		<java.version>15</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -37,6 +38,10 @@
 			<artifactId>json</artifactId>
 			<version>20201115</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -44,6 +49,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludeDevtools>false</excludeDevtools>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

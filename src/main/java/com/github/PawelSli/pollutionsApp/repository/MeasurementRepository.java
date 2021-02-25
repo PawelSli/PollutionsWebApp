@@ -27,13 +27,12 @@ public class MeasurementRepository {
     }
 
     public  ArrayList getJsonStationData(){
-        Comparator<String[]> comparator=(s1,s2)->String.CASE_INSENSITIVE_ORDER.compare(s1[0],s2[0]);
         ArrayList<String[]> arrayList=new ArrayList<>();
         jsonArray.forEach(object->{
             JSONObject jsonObject=(JSONObject) object;
             arrayList.add(new String[]{(String) jsonObject.get("stationName"),(String) jsonObject.get("gegrLat"), (String) jsonObject.get("gegrLon")});
         });
-        arrayList.sort(comparator);
+        arrayList.sort((s1,s2)->String.CASE_INSENSITIVE_ORDER.compare(s1[0],s2[0]));
         return arrayList;
     }
 
