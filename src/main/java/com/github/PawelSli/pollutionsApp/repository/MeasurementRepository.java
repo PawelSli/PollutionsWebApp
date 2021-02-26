@@ -26,7 +26,7 @@ public class MeasurementRepository {
         }
     }
 
-    public  ArrayList getJsonStationData(){
+    public  ArrayList getJsonStationNameAndLocation(){
         ArrayList<String[]> arrayList=new ArrayList<>();
         jsonArray.forEach(object->{
             JSONObject jsonObject=(JSONObject) object;
@@ -34,6 +34,24 @@ public class MeasurementRepository {
         });
         arrayList.sort((s1,s2)->String.CASE_INSENSITIVE_ORDER.compare(s1[0],s2[0]));
         return arrayList;
+    }
+
+    public void getMeasuringStationsId(){
+        jsonArray.forEach(object->{
+            JSONObject jsonObject=(JSONObject) object;
+            String tempId= (String) jsonObject.get("id");
+            String tempUrl="http://api.gios.gov.pl/pjp-api/rest/station/sensors/"+tempId;
+            try {
+                String tempText=new Scanner(new URL(tempUrl).openStream()).useDelimiter("\\A").next();
+                JSONArray tempJsonArray = new JSONArray(tempText);
+                tempJsonArray.forEach(tempObject->{
+                    JSONObject tempJsonObject=(JSONObject) tempObject;
+
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
 }
