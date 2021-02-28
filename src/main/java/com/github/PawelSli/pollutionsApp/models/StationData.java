@@ -1,107 +1,180 @@
 package com.github.PawelSli.pollutionsApp.models;
 
-public class StationData {
-    private long id;
-    private String name;
-    private String airQuality;
-    private String c6h6Level;
-    private String pm10Level;
-    private String no2Level;
-    private String so2Level;
-    private String pm25Level;
-    private String o3Level;
-    private String coLevel;
+import java.util.ArrayList;
 
-    public StationData(long id, String name, String airQuality, String c6h6Level, String pm10Level, String no2Level, String so2Level, String pm25Level, String o3Level, String coLevel) {
+public class StationData {
+    private Integer id;
+    private String name;
+    private Double geoLat;
+    private Double geoLon;
+
+    private ArrayList<Integer> postsList;
+
+    private String indexLevelName;
+    private String so2LevelName;
+    private String no2LevelName;
+    private String coLevelName;
+    private String pm10LevelName;
+    private String pm25LevelName;
+    private String o3LevelName;
+    private String c6h6LevelName;
+
+    private Double so2Value;
+    private Double no2Value;
+    private Double coValue;
+    private Double pm10Value;
+    private Double pm25Value;
+    private Double o3Value;
+    private Double c6h6Value;
+
+    public StationData(Integer id, String name, Double geoLat, Double geoLon) {
         this.id = id;
         this.name = name;
-        this.airQuality = airQuality;
-        this.c6h6Level = c6h6Level;
-        this.pm10Level = pm10Level;
-        this.no2Level = no2Level;
-        this.so2Level = so2Level;
-        this.pm25Level = pm25Level;
-        this.o3Level = o3Level;
-        this.coLevel = coLevel;
+        this.geoLat = geoLat;
+        this.geoLon = geoLon;
     }
 
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public Double getGeoLat() {
+        return geoLat;
+    }
+
+    public Double getGeoLon() {
+        return geoLon;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public ArrayList<Integer> getPostsList() {
+        return postsList;
     }
 
-    public String getAirQuality() {
-        return airQuality;
+    public void setPostsList(ArrayList<Integer> postsList) {
+        this.postsList = postsList;
     }
 
-    public void setAirQuality(String airQuality) {
-        this.airQuality = airQuality;
+    public String getIndexLevelName() {
+        return indexLevelName;
     }
 
-    public String getC6h6Level() {
-        return c6h6Level;
+    public void setIndexLevelName(String indexLevelName) {
+        this.indexLevelName = indexLevelName;
     }
 
-    public void setC6h6Level(String c6h6Level) {
-        this.c6h6Level = c6h6Level;
+    public String getSo2LevelName() {
+        return so2LevelName;
     }
 
-    public String getPm10Level() {
-        return pm10Level;
+    public void setSo2LevelName(String so2LevelName) {
+        this.so2LevelName = so2LevelName;
     }
 
-    public void setPm10Level(String pm10Level) {
-        this.pm10Level = pm10Level;
+    public String getNo2LevelName() {
+        return no2LevelName;
     }
 
-    public String getNo2Level() {
-        return no2Level;
+    public void setNo2LevelName(String no2LevelName) {
+        this.no2LevelName = no2LevelName;
     }
 
-    public void setNo2Level(String no2Level) {
-        this.no2Level = no2Level;
+    public String getCoLevelName() {
+        return coLevelName;
     }
 
-    public String getSo2Level() {
-        return so2Level;
+    public void setCoLevelName(String coLevelName) {
+        this.coLevelName = coLevelName;
     }
 
-    public void setSo2Level(String so2Level) {
-        this.so2Level = so2Level;
+    public String getPm10LevelName() {
+        return pm10LevelName;
     }
 
-    public String getPm25Level() {
-        return pm25Level;
+    public void setPm10LevelName(String pm10LevelName) {
+        this.pm10LevelName = pm10LevelName;
     }
 
-    public void setPm25Level(String pm25Level) {
-        this.pm25Level = pm25Level;
+    public String getPm25LevelName() {
+        return pm25LevelName;
     }
 
-    public String getO3Level() {
-        return o3Level;
+    public void setPm25LevelName(String pm25LevelName) {
+        this.pm25LevelName = pm25LevelName;
     }
 
-    public void setO3Level(String o3Level) {
-        this.o3Level = o3Level;
+    public String getO3LevelName() {
+        return o3LevelName;
     }
 
-    public String getCoLevel() {
-        return coLevel;
+    public void setO3LevelName(String o3LevelName) {
+        this.o3LevelName = o3LevelName;
     }
 
-    public void setCoLevel(String coLevel) {
-        this.coLevel = coLevel;
+    public String getC6h6LevelName() {
+        return c6h6LevelName;
+    }
+
+    public void setC6h6LevelName(String c6h6LevelName) {
+        this.c6h6LevelName = c6h6LevelName;
+    }
+
+    public Double getSo2Value() {
+        return so2Value;
+    }
+
+    public void setSo2Value(Double so2Value) {
+        this.so2Value = so2Value;
+    }
+
+    public Double getNo2Value() {
+        return no2Value;
+    }
+
+    public void setNo2Value(Double no2Value) {
+        this.no2Value = no2Value;
+    }
+
+    public Double getCoValue() {
+        return coValue;
+    }
+
+    public void setCoValue(Double coValue) {
+        this.coValue = coValue;
+    }
+
+    public Double getPm10Value() {
+        return pm10Value;
+    }
+
+    public void setPm10Value(Double pm10Value) {
+        this.pm10Value = pm10Value;
+    }
+
+    public Double getPm25Value() {
+        return pm25Value;
+    }
+
+    public void setPm25Value(Double pm25Value) {
+        this.pm25Value = pm25Value;
+    }
+
+    public Double getO3Value() {
+        return o3Value;
+    }
+
+    public void setO3Value(Double o3Value) {
+        this.o3Value = o3Value;
+    }
+
+    public Double getC6h6Value() {
+        return c6h6Value;
+    }
+
+    public void setC6h6Value(Double c6h6Value) {
+        this.c6h6Value = c6h6Value;
     }
 }

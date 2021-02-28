@@ -10,7 +10,7 @@ public class MeasurementController {
     private MeasurementRepository measurementRepository;
 
     public MeasurementController(){
-        this.measurementRepository=new MeasurementRepository();
+        //this.measurementRepository=new MeasurementRepository();
     }
 
     @RequestMapping("/main")
